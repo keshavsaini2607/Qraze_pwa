@@ -15,8 +15,12 @@ const Login: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleLogin = () => {
-    console.log("hello");
+  const handleLogin = (e: any) => {
+    e.preventDefault();
+    const form = e.target;
+    const formObj = new FormData(form);
+    const data = Object.fromEntries(formObj.entries());
+    console.log("hello", data);
     history.push("/active-offers");
   };
 
@@ -29,7 +33,7 @@ const Login: React.FC = () => {
         </div>
       ) : (
         // Login form
-        <div className="login-container">
+        <form className="login-container" onSubmit={handleLogin}>
           <div className="login-box">
             <img className="logo" src={logo} alt="Logo" />
             <h2>Brand Login</h2>
@@ -37,17 +41,19 @@ const Login: React.FC = () => {
               className="input-field"
               placeholder="Username & Email"
               type="email"
+              name="email"
             />
             <input
               className="input-field"
               placeholder="Password"
               type="password"
+              name="password"
             />
-            <button className="login-button" onClick={handleLogin}>
+            <button className="login-button" type="submit">
               Login
             </button>
           </div>
-        </div>
+        </form>
       )}
     </IonApp>
   );

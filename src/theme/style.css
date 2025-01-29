@@ -1,4 +1,5 @@
-/* HOME */
+/* ------------------------ */
+/* LOGIN */
 .splash-screen {
   display: flex;
   align-items: center;
@@ -28,8 +29,6 @@
   }
 }
 
-
-/* LOGIN */
 .login-container {
   display: flex;
   justify-content: center;
@@ -37,24 +36,21 @@
   background-color: #fff;
   height: 100vh;
   width: 100vw;
-  /* border: 2px solid red; */
 }
 
 /* Style the login box */
 .login-box {
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  margin-top: 50px;
   gap: 10px;
   background: #fffaf0;
   padding: 40px;
   border-radius: 12px;
   width: 90%;
   height: inherit;
-  max-width: 500px;
+  max-width: 40%;
 }
 
 /* Logo */
@@ -110,4 +106,128 @@ h2 {
 /* Hover effect */
 .login-button:hover {
   background: #333 !important;
+}
+
+
+
+/* ---------------------- */
+/* Active Offers */
+
+/* .active-container {
+  background-color: #fffaf0;
+  height: 100%;
+  width: 500px;
+  margin: auto;
+}
+
+.wrapper {
+  padding: 0 24px;
+}
+
+h3 {
+  background-color: #6DCFDE;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.campaign-container {
+  background-color: #FFCE1B;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.campaign-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+
+.container {
+  max-width: 40%;
+  margin:  auto;
+  padding: 20px;
+  background-color: #fffaf0;
+  border-radius: 10px;
+  height: 100vh;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.welcome-message {
+  background-color:#6DCFDE;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;justify-content: center;
+  width: 353px;
+  height: 60px;
+}
+
+.welcome-message p {
+  margin: 0;
+  color: #333;
+font-weight: 400;
+font-size: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.offer-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.offer-details{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  /* border: 1px solid red; */
+
+}
+
+
+.offer-details p {
+  margin: 5px 0;
+font-weight: 600;
+font-size: 15px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+border: 1px solid red;
+
+
+}
+
+
+.offer-details span{
+  width: 70%;
+}
+
+.offer-badge {
+  background-color: #ffd700;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.avail-now-btn {
+  background-color: #ffd700;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
