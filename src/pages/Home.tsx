@@ -5,6 +5,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import logo from "/logo.png";
 
 const Home: React.FC = () => {
   return (

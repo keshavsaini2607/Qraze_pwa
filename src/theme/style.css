@@ -1,3 +1,35 @@
+/* HOME */
+.splash-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: white; /* Change as needed */
+}
+
+.animated-logo {
+  width: 50px;
+  height: 50px;
+  animation: zoomInOut 3s ease-in-out;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* LOGIN */
 .login-container {
   display: flex;
   justify-content: center;
@@ -29,6 +61,7 @@
 .logo {
   width: 50px;
   margin-bottom: 20px;
+  background-color: transparent;
 }
 
 /* Title */
@@ -42,6 +75,7 @@ h2 {
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  background-color: transparent;
 }
 
 /* Input fields */
