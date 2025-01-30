@@ -8,6 +8,8 @@ const Login: React.FC = () => {
   const [showSplash, setShowSplash] = useState(true);
   const history = useHistory();
 
+  const inputClass = "border border-black p-4 rounded-2xl ";
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -17,44 +19,38 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: any) => {
     e.preventDefault();
-    const form = e.target;
-    const formObj = new FormData(form);
-    const data = Object.fromEntries(formObj.entries());
-    console.log("hello", data);
+
     history.push("/active-offers");
   };
 
   return (
     <IonApp>
-      {showSplash ? (
-        // Splash screen
-        <div className="splash-screen">
-          <img className="animated-logo" src={logo} alt="Logo" />
-        </div>
-      ) : (
-        // Login form
-        <form className="login-container" onSubmit={handleLogin}>
-          <div className="login-box">
-            <img className="logo" src={logo} alt="Logo" />
-            <h2>Brand Login</h2>
+      <div className="w-full md:w-[30%] m-auto h-screen">
+        <div className="flex flex-col items-center justify-start gap-10 p-5">
+          <img src={logo} className="w-[50px]" />
+          <h1 className="text-xl">Brand Login</h1>
+
+          <form className="flex flex-col gap-4 w-full">
             <input
-              className="input-field"
-              placeholder="Username & Email"
-              type="email"
+              placeholder="UserName or email"
               name="email"
+              className={inputClass}
             />
             <input
-              className="input-field"
-              placeholder="Password"
-              type="password"
+              placeholder="password"
               name="password"
+              className={inputClass}
             />
-            <button className="login-button" type="submit">
+
+            <button
+              className="px-4 py-2 bg-black text-white rounded-2xl cursor-pointer w-full"
+              onClick={handleLogin}
+            >
               Login
             </button>
-          </div>
-        </form>
-      )}
+          </form>
+        </div>
+      </div>
     </IonApp>
   );
 };

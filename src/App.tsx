@@ -5,20 +5,18 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ActiveOffers from "./pages/ActiveOffers";
 import "./theme/global.css";
+import ScanQrCode from "./pages/ScanQrCode";
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <BrowserRouter>
-        {/* <IonRouterOutlet> */}
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/active-offers" component={ActiveOffers} />
-        {/* </IonRouterOutlet> */}
-      </BrowserRouter>
-    </IonReactRouter>
+    <BrowserRouter>
+      {/* <Route exact path="/" component={Home} /> */}
+      <Route exact path="/" component={Login} />
+      <Route exact path="/active-offers" component={ActiveOffers} />
+      <Route exact path="/scan" component={ScanQrCode} />
+    </BrowserRouter>
   </IonApp>
 );
 
