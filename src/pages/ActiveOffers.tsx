@@ -12,7 +12,7 @@ const ActiveOffers: React.FC = () => {
   ];
 
   return (
-    <div className="w-full md:w-[30%] m-auto border h-screen">
+    <div className="w-full md:w-[30%] m-auto h-screen">
       <div className="flex flex-col items-center justify-center gap-4 p-5">
         <p className="rounded-2xl p-4 bg-[#6DCFDE] w-full flex items-center justify-center">
           Hi&nbsp; <span className="font-bold">Skylight Alwar</span>, Welcome to

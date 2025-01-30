@@ -62,7 +62,7 @@ const QrScanner: React.FC = () => {
   return (
     <IonPage>
       {/* <IonContent className="ion-padding"> */}
-      <div className="w-full md:w-[30%] m-auto border h-screen p-5">
+      <div className="w-full md:w-[30%] m-auto h-screen p-5">
         <div className="bg-[#FFCE1B] p-4 rounded-2xl w-full">
           <p className="font-bold mb-4">Campaign Name</p>
 
