@@ -18,8 +18,6 @@ const QrScanner: React.FC = () => {
     try {
       stream = await navigator.mediaDevices.getUserMedia({ video: true }); // Request camera access
 
-      // Permission granted!  'stream' contains the video stream.  Now use it with the BarcodeScanner.
-
       document.body.classList.add("scanner-active");
       await BarcodeScanner.hideBackground();
 
@@ -28,8 +26,6 @@ const QrScanner: React.FC = () => {
       if (result.hasContent) {
         setScannedData(result.content!);
       }
-
-      // ... (rest of your scanning logic)
     } catch (error: any) {
       console.error("Camera permission denied or error:", error);
       if (error.name === "NotAllowedError") {
@@ -48,7 +44,7 @@ const QrScanner: React.FC = () => {
 
       if (stream) {
         const tracks = stream.getTracks();
-        tracks.forEach((track: any) => track.stop()); // Stop the video stream to release the camera
+        tracks.forEach((track: any) => track.stop());
       }
     }
   };
@@ -62,7 +58,7 @@ const QrScanner: React.FC = () => {
   return (
     <IonPage>
       {/* <IonContent className="ion-padding"> */}
-      <div className="w-full md:w-[30%] m-auto h-screen p-5">
+      <div className="w-full md:w-[30%] flex flex-col items-center gap-20 m-auto h-screen p-5">
         <div className="bg-[#FFCE1B] p-4 rounded-2xl w-full">
           <p className="font-bold mb-4">Campaign Name</p>
 
@@ -82,7 +78,7 @@ const QrScanner: React.FC = () => {
           </div>
         </div>
 
-        <div>
+        <div className="">
           <IonButton onClick={startScan}>Scan QR Code</IonButton>
 
           {scannedData && <IonText>Scanned Data: {scannedData}</IonText>}
