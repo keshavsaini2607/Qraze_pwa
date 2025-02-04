@@ -10,6 +10,7 @@ const Login: React.FC = () => {
   const [showSplash, setShowSplash] = useState(
     localStorage.getItem("splashShown") !== "true"
   );
+  const [loading, setLoading] = useState(false); // Loading state
   const history = useHistory();
 
   const inputClass =
@@ -27,6 +28,8 @@ const Login: React.FC = () => {
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
+
     const values = e.target;
     const data = new FormData(values);
     const payload = Object.fromEntries(data);
@@ -34,18 +37,21 @@ const Login: React.FC = () => {
     const { email, password } = payload;
 
     if (!email || !password) {
-      toast.error("Email and Password is required!");
+      toast.error("Email and Password are required!");
+      setLoading(false);
       return;
     }
 
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email as string)) {
       toast.error("Invalid email format!");
+      setLoading(false);
       return;
     }
 
     if ((password as string).length < 6) {
       toast.error("Password must be at least 6 characters!");
+      setLoading(false);
       return;
     }
 
@@ -62,13 +68,15 @@ const Login: React.FC = () => {
     } catch (error) {
       toast.error("Login Failed!");
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <IonApp>
       {showSplash ? (
-        <div className="w-full md:w-[30%] flex items-center justify-center m-auto h-screen ">
+        <div className="w-full md:w-[30%] flex items-center justify-center m-auto h-screen">
           <img src={logo} className="w-[60px] animate-pulse" alt="Logo" />
         </div>
       ) : (
@@ -86,14 +94,16 @@ const Login: React.FC = () => {
               <input
                 placeholder="password"
                 name="password"
+                type="password"
                 className={inputClass}
               />
 
               <button
                 className="px-4 py-2 bg-black text-white rounded-2xl cursor-pointer w-full"
                 type="submit"
+                disabled={loading}
               >
-                Login
+                {loading ? "Logging in..." : "Login"}
               </button>
             </form>
           </div>
